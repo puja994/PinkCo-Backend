@@ -12,8 +12,22 @@ app.use(express.json());
 import mongoClient from './config/db.js'
 mongoClient()
 
+import categoryRouter from './routers/category.router.js'
+app.use('/api/v1/category', categoryRouter)
+
 app.get("/", (req,res)=>{
     res.send("e-commerce website")
+})
+
+app.use((req,res,next)=>{
+    const error = new Error ("Resources not found")
+    error.status = 404
+    next(error)
+})
+
+import {handleError} from './utils/errorHandler.js'
+app.use((error, req,res,next)=>{
+    handleError(error, res)
 })
 
 app.listen(PORT, error =>{
