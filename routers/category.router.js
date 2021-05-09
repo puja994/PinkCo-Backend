@@ -2,7 +2,7 @@ import express from 'express'
 const router = express.Router()
 import slugify from 'slugify'
 
-import {insertCategory, getCategories} from '../models/category/category.model.js'
+import { getCategories} from '../models/category/category.model.js'
 
 
 router.all("*", (req,res,next)=>{

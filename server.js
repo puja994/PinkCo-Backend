@@ -13,7 +13,12 @@ import mongoClient from './config/db.js'
 mongoClient()
 
 import categoryRouter from './routers/category.router.js'
+import userRouter from './routers/user.router.js'
+import loginRouter from './routers/login.router.js'
+
 app.use('/api/v1/category', categoryRouter)
+app.use('/api/v1/user', userRouter)
+app.use('/api/v1/login', loginRouter)
 
 app.get("/", (req,res)=>{
     res.send("e-commerce website")

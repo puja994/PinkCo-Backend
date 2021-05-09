@@ -1,6 +1,27 @@
 ### root access
 GET  http://localhost:8000
 
-### Categor Zone ####
+### Category Zone ####
 ### Fetch all category
 GET  http://localhost:8000/api/v1/category
+
+### create user
+POST http://localhost:8000/api/v1/user
+Content-Type: application/json
+
+{
+    "fname": "puja",
+    "lname": "bhandari",
+    "email": "sitaaa@com",
+    "password": "1234",
+    "role": "user"
+}
+
+### login api endpoint
+POST http://localhost:8000/api/v1/login
+Content-Type: application/json
+
+{
+    "email": "sitaaa@com",
+    "password": "1234"
+}
