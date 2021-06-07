@@ -1,7 +1,7 @@
 import CategorySchema from './Category.schema.js'
 
 
-export const getCategories = catObj => {
+export const getCategories = () => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			const result = await CategorySchema.find();

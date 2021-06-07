@@ -11,10 +11,13 @@ export const getProducts = () =>{
         }
     })
 }
-export const getProductById = _id =>{
+export const getProductById = (_id) =>{
     return new Promise (async(resolve,reject)=>{
         try{
-            const result = await ProdSchema.findById(_id)
+            const result = await ProdSchema.find({
+              categories: { $in: _id },
+            });
+      
             resolve(result)
 
         }catch(error){
@@ -22,3 +25,18 @@ export const getProductById = _id =>{
         }
     })
 }
+export const getProductBySlug = (slugValue) => {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const result = await ProdSchema.find({
+          slug: {
+            $in: slugValue,
+          },
+        });
+  
+        resolve(result);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  };
